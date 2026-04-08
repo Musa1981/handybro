@@ -7,7 +7,6 @@ import {
   Hammer,
   Paintbrush,
   Trees,
-  Car,
   Sparkles,
   Phone,
   Mail,
@@ -59,7 +58,7 @@ const translations = {
       assembly: "Montering",
       painting: "Målning & väggar",
       garden: "Trädgård & uteplats",
-      car: "Bilhjälp",
+      construction: "Bygg & ombyggnation",
       cleaning: "Rengöring & fix",
     },
     serviceDescriptions: {
@@ -71,7 +70,8 @@ const translations = {
         "Målning av väggar och tak, enklare spackling samt hjälp med förberedelser före renovering.",
       garden:
         "Gräsklippning, häcktrimning, plantering, städning av uteplats och enklare trädgårdsfix.",
-      car: "Hjälp med enklare bilärenden, däck, lampor, rengöring och praktiska småsaker.",
+      construction:
+        "Hjälp med renovering, ombyggnation, snickeri, målning och andra byggrelaterade tjänster.",
       cleaning:
         "Rensning, städning, förrådshjälp och små fix som gör stor skillnad i vardagen.",
     },
@@ -111,7 +111,7 @@ const translations = {
       assembly: "Assembly",
       painting: "Painting & walls",
       garden: "Garden & outdoor",
-      car: "Car help",
+      construction: "Construction & renovation",
       cleaning: "Cleaning & fixes",
     },
     serviceDescriptions: {
@@ -123,7 +123,8 @@ const translations = {
         "Painting of walls and ceilings, light filling work and help preparing before renovation.",
       garden:
         "Lawn mowing, hedge trimming, planting, patio cleanup and simple garden maintenance.",
-      car: "Help with simple car tasks, tires, bulbs, cleaning and other practical matters.",
+      construction:
+        "Help with renovations, remodeling, carpentry, painting, and other construction-related services.",
       cleaning:
         "Decluttering, storage cleanup and small practical fixes that make everyday life easier.",
     },
@@ -135,7 +136,7 @@ const serviceConfig = [
   { key: "assembly", icon: Hammer },
   { key: "painting", icon: Paintbrush },
   { key: "garden", icon: Trees },
-  { key: "car", icon: Car },
+  { key: "construction", icon: Hammer },
   { key: "cleaning", icon: Sparkles },
 ];
 
@@ -196,14 +197,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] text-slate-800">
+    <div className="min-h-screen overflow-x-hidden bg-[#f7f7f5] text-slate-800">
       <div className="fixed inset-x-0 top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 md:px-6">
-          <a href="#home" className="flex items-center shrink-0">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:gap-6 md:px-6">
+          <a href="#home" className="flex shrink-0 items-center">
             <img
               src={logo}
               alt="HandyBro"
-              className="h-20 w-auto max-w-[220px] object-contain sm:h-24 sm:max-w-[260px] md:h-28 md:max-w-[320px]"
+              className="h-12 w-auto max-w-[150px] object-contain sm:h-16 sm:max-w-[190px] md:h-28 md:max-w-[320px]"
             />
           </a>
 
@@ -227,14 +228,14 @@ export default function App() {
               <button
                 onClick={() => setLang("sv")}
                 className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${lang === "sv"
-                  ? "bg-[#0f2242] text-white"
-                  : "text-slate-600 hover:bg-slate-100"
+                    ? "bg-[#0f2242] text-white"
+                    : "text-slate-600 hover:bg-slate-100"
                   }`}
               >
                 <img
                   src={sweden}
                   alt="Swedish"
-                  className="h-4 w-6 object-cover rounded-sm"
+                  className="h-4 w-6 rounded-sm object-cover"
                 />
                 SV
               </button>
@@ -242,14 +243,14 @@ export default function App() {
               <button
                 onClick={() => setLang("en")}
                 className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${lang === "en"
-                  ? "bg-[#0f2242] text-white"
-                  : "text-slate-600 hover:bg-slate-100"
+                    ? "bg-[#0f2242] text-white"
+                    : "text-slate-600 hover:bg-slate-100"
                   }`}
               >
                 <img
                   src={uk}
                   alt="English"
-                  className="h-4 w-6 object-cover rounded-sm"
+                  className="h-4 w-6 rounded-sm object-cover"
                 />
                 EN
               </button>
@@ -303,7 +304,7 @@ export default function App() {
                   <img
                     src={sweden}
                     alt="Swedish"
-                    className="h-4 w-6 object-cover rounded-sm"
+                    className="h-4 w-6 rounded-sm object-cover"
                   />
                   SV
                 </button>
@@ -316,7 +317,7 @@ export default function App() {
                   <img
                     src={uk}
                     alt="English"
-                    className="h-4 w-6 object-cover rounded-sm"
+                    className="h-4 w-6 rounded-sm object-cover"
                   />
                   EN
                 </button>
@@ -326,9 +327,9 @@ export default function App() {
         </AnimatePresence>
       </div>
 
-      <section id="home" className="relative overflow-hidden pt-28 md:pt-32">
+      <section id="home" className="relative overflow-hidden pt-20 md:pt-32">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(243,154,63,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(15,34,66,0.1),_transparent_28%)]" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-2 md:px-6 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -339,11 +340,13 @@ export default function App() {
               HandyBro • Sverige
             </div>
 
-            <h1 className="max-w-xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-6xl">
+            <h1 className="max-w-full text-[2.4rem] font-extrabold leading-[1.05] tracking-tight text-slate-950 sm:text-4xl md:max-w-xl md:text-6xl">
               {t.heroTitle}
             </h1>
 
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">{t.heroText}</p>
+            <p className="mt-5 max-w-full text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 md:max-w-xl">
+              {t.heroText}
+            </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -396,10 +399,12 @@ export default function App() {
                 ))}
 
                 <div className="rounded-[24px] border border-slate-200 bg-white p-5 sm:col-span-2">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="min-w-0">
                       <div className="text-sm text-slate-500">Email</div>
-                      <div className="text-lg font-bold text-slate-900">info@handybro.se</div>
+                      <div className="break-words text-lg font-bold text-slate-900 sm:text-xl">
+                        info@handybro.se
+                      </div>
                     </div>
 
                     <Button
@@ -439,12 +444,16 @@ export default function App() {
                 transition={{ duration: 0.35, delay: index * 0.04 }}
                 className="h-full"
               >
-                <div className="group flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(15,34,66,0.08)]">
+                <div className="group flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(15,34,66,0.08)] sm:p-7">
                   <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-[#f39a3f] text-white shadow-sm">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-slate-950">{service.title}</h3>
-                  <p className="mt-4 flex-1 text-lg leading-8 text-slate-600">{service.description}</p>
+                  <h3 className="text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 flex-1 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                    {service.description}
+                  </p>
 
                   <Button
                     onClick={() => openBooking(service.title)}
@@ -460,19 +469,21 @@ export default function App() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-4 md:px-6 md:py-8">
-        <div className="rounded-[36px] bg-[#fff4e7] px-6 py-10 shadow-sm md:px-10">
+        <div className="rounded-[36px] bg-[#fff4e7] px-5 py-8 shadow-sm md:px-10 md:py-10">
           <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center">
             <div>
               <h3 className="text-3xl font-extrabold tracking-tight text-slate-950 md:text-4xl">
                 {t.bookTitle}
               </h3>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">{t.bookSubtitle}</p>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                {t.bookSubtitle}
+              </p>
             </div>
 
-            <div className="space-y-3 rounded-[28px] bg-white p-6 shadow-sm">
+            <div className="space-y-3 rounded-[28px] bg-white p-5 shadow-sm sm:p-6">
               {t.guarantees.map((item) => (
                 <div key={item} className="flex items-start gap-3 text-slate-700">
-                  <Check className="mt-1 h-5 w-5 text-[#f39a3f]" />
+                  <Check className="mt-1 h-5 w-5 shrink-0 text-[#f39a3f]" />
                   <span className="text-base leading-7">{item}</span>
                 </div>
               ))}
@@ -498,7 +509,7 @@ export default function App() {
           </h2>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
           {[
             {
               label: t.form.phone,
@@ -506,52 +517,77 @@ export default function App() {
                 <div className="flex flex-col gap-2">
                   <a
                     href="tel:0700182132"
-                    className="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200 transition"
+                    className="rounded-lg bg-gray-100 px-3 py-2 text-sm transition hover:bg-gray-200"
                   >
                     📞 070 018 21 32
                   </a>
                   <a
                     href="tel:0736160832"
-                    className="px-3 py-1 bg-gray-100 rounded hover:bg-gray-200 transition"
+                    className="rounded-lg bg-gray-100 px-3 py-2 text-sm transition hover:bg-gray-200"
                   >
                     📞 073 616 08 32
                   </a>
                 </div>
               ),
-              icon: Phone
+              icon: Phone,
             },
-            { label: t.form.email, value: "info@handybro.se", icon: Mail, href: "mailto:info@handybro.se" },
-            { label: t.website, value: "handybro.site", icon: Globe, href: "https://handybro.site" },
-            { label: "Instagram", value: "@handybro.se", icon: Globe, href: "https://instagram.com/handybro.se" },
-            { label: "LinkedIn", value: "Handy Bro", icon: Globe, href: "https://www.linkedin.com/in/handybro-handybro-651814397/" },
-            { label: "Facebook", value: "Handy Bro", icon: Globe, href: "https://www.facebook.com/profile.php?id=61572114503757" },
+            {
+              label: t.form.email,
+              value: "info@handybro.se",
+              icon: Mail,
+              href: "mailto:info@handybro.se",
+            },
+            {
+              label: t.website,
+              value: "handybro.site",
+              icon: Globe,
+              href: "https://handybro.site",
+            },
+            {
+              label: "Instagram",
+              value: "@handybro.se",
+              icon: Globe,
+              href: "https://instagram.com/handybro.se",
+            },
+            {
+              label: "LinkedIn",
+              value: "Handy Bro",
+              icon: Globe,
+              href: "https://www.linkedin.com/in/handybro-handybro-651814397/",
+            },
+            {
+              label: "Facebook",
+              value: "Handy Bro",
+              icon: Globe,
+              href: "https://www.facebook.com/profile.php?id=61572114503757",
+            },
           ].map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.label}
-                className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#f39a3f]/40 hover:shadow-[0_20px_40px_rgba(15,34,66,0.08)]"
+                className="group rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#f39a3f]/40 hover:shadow-[0_20px_40px_rgba(15,34,66,0.08)] sm:p-6"
               >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#f39a3f] text-white transition duration-300 group-hover:scale-105 group-hover:bg-[#df8530]">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-[#f39a3f] text-white transition duration-300 group-hover:scale-105 group-hover:bg-[#df8530]">
                     <Icon className="h-6 w-6" />
                   </div>
 
-                  <div>
-                    <div className="text-base text-slate-500">{item.label}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-sm text-slate-500 sm:text-base">{item.label}</div>
 
                     {item.href ? (
                       <a
                         href={item.href}
                         target={item.href?.startsWith("http") ? "_blank" : undefined}
                         rel={item.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="text-2xl font-bold tracking-tight text-slate-950 transition group-hover:text-[#f39a3f]"
+                        className="break-words text-lg font-bold tracking-tight text-slate-950 transition group-hover:text-[#f39a3f] sm:text-xl"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <div className="text-2xl font-bold tracking-tight text-slate-950">
+                      <div className="break-words text-lg font-bold tracking-tight text-slate-950 sm:text-xl">
                         {item.value}
                       </div>
                     )}
@@ -569,25 +605,23 @@ export default function App() {
             <img
               src={logo}
               alt="HandyBro"
-              className="h-24 w-auto max-w-[260px] object-contain sm:h-28 sm:max-w-[300px] md:h-32 md:max-w-[360px]"
+              className="h-14 w-auto max-w-[180px] object-contain md:h-20 md:max-w-[280px]"
             />
           </div>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75">
-            {t.footer}
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75">{t.footer}</p>
           <div className="mt-6 text-sm text-white/50">© 2026 HandyBro. All rights reserved.</div>
         </div>
       </footer>
 
       <button
         onClick={() => openBooking()}
-        className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 rounded-2xl bg-[#e88d35] px-4 py-8 text-base font-bold text-white shadow-[0_12px_30px_rgba(232,141,53,0.35)] transition hover:bg-[#d67d28] md:block"
+        className="fixed right-4 top-1/2 z-30 hidden -translate-y-1/2 rounded-2xl bg-[#e88d35] px-4 py-6 text-sm font-bold text-white shadow-[0_12px_30px_rgba(232,141,53,0.35)] transition hover:bg-[#d67d28] lg:block"
         style={{ writingMode: "vertical-rl" }}
       >
         {t.nav.book}
       </button>
 
-      <div className="fixed bottom-4 right-4 z-30 max-w-[320px] rounded-full bg-[#eba154] px-6 py-4 text-base font-medium leading-7 text-white shadow-[0_10px_30px_rgba(235,161,84,0.35)]">
+      <div className="fixed bottom-3 right-3 z-30 max-w-[220px] rounded-2xl bg-[#eba154] px-4 py-3 text-sm font-medium leading-6 text-white shadow-[0_10px_30px_rgba(235,161,84,0.35)] md:bottom-4 md:right-4 md:max-w-[320px] md:rounded-full md:px-6 md:py-4 md:text-base md:leading-7">
         {t.rot}
       </div>
 
@@ -597,18 +631,18 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-3 sm:p-4"
           >
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
               transition={{ duration: 0.22 }}
-              className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-[32px] bg-white shadow-[0_30px_120px_rgba(0,0,0,0.24)]"
+              className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-[28px] bg-white shadow-[0_30px_120px_rgba(0,0,0,0.24)] sm:rounded-[32px]"
             >
-              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-5 md:px-8">
-                <div>
-                  <h3 className="text-3xl font-extrabold tracking-tight text-slate-950">
+              <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-slate-100 bg-white px-5 py-4 sm:px-6 sm:py-5 md:px-8">
+                <div className="min-w-0">
+                  <h3 className="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">
                     {t.bookTitle}
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">{t.bookSubtitle}</p>
@@ -616,17 +650,17 @@ export default function App() {
 
                 <button
                   onClick={() => setBookingOpen(false)}
-                  className="rounded-2xl border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+                  className="shrink-0 rounded-2xl border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
                 >
                   <X className="h-6 w-6" />
                 </button>
               </div>
 
-              <div className="px-6 py-6 md:px-8 md:py-8">
+              <div className="px-5 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
                 <div className="mb-8 grid gap-3 md:grid-cols-3">
                   {t.guarantees.map((item) => (
                     <div key={item} className="flex items-start gap-3 rounded-2xl bg-[#fff7ee] p-4">
-                      <Check className="mt-0.5 h-5 w-5 text-[#f39a3f]" />
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#f39a3f]" />
                       <span className="text-sm font-medium leading-6 text-slate-700">{item}</span>
                     </div>
                   ))}
@@ -687,7 +721,8 @@ export default function App() {
                         <ClipboardList className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
                         <select
                           name="service"
-                          defaultValue={selectedService || ""}
+                          value={selectedService}
+                          onChange={(e) => setSelectedService(e.target.value)}
                           className="h-14 w-full rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-base outline-none focus:border-[#f39a3f]"
                         >
                           <option value="">{t.form.service}</option>
