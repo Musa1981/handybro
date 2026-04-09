@@ -535,7 +535,7 @@ export default function App() {
               label: t.form.email,
               value: "handybrosverige@gmail.com",
               icon: Mail,
-              href: "handybrosverige@gmail.com",
+              href: "mailto:handybrosverige@gmail.com",
             },
             {
               label: t.website,
