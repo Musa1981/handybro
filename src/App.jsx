@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
-import logo from "./assets/logo.png";
-import sweden from "./assets/sweden.png";
-import uk from "./assets/uk.png";
+import logo from "./assets/HandyBro logo.png";
+import sweden from "./assets/SV.png";
+import uk from "./assets/GB.png";
 import {
   Wrench,
   Hammer,
@@ -191,7 +191,7 @@ export default function App() {
       `${form.get("message") || ""}`,
     ].join("\n");
 
-    window.location.href = `mailto:info@handybro.se?subject=${encodeURIComponent(
+    window.location.href = `mailto:handybrosverige@gmail.com?subject=${encodeURIComponent(
       "HandyBro booking request"
     )}&body=${encodeURIComponent(body)}`;
   };
@@ -228,8 +228,8 @@ export default function App() {
               <button
                 onClick={() => setLang("sv")}
                 className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${lang === "sv"
-                    ? "bg-[#0f2242] text-white"
-                    : "text-slate-600 hover:bg-slate-100"
+                  ? "bg-[#0f2242] text-white"
+                  : "text-slate-600 hover:bg-slate-100"
                   }`}
               >
                 <img
@@ -243,8 +243,8 @@ export default function App() {
               <button
                 onClick={() => setLang("en")}
                 className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition ${lang === "en"
-                    ? "bg-[#0f2242] text-white"
-                    : "text-slate-600 hover:bg-slate-100"
+                  ? "bg-[#0f2242] text-white"
+                  : "text-slate-600 hover:bg-slate-100"
                   }`}
               >
                 <img
@@ -403,7 +403,7 @@ export default function App() {
                     <div className="min-w-0">
                       <div className="text-sm text-slate-500">Email</div>
                       <div className="break-words text-lg font-bold text-slate-900 sm:text-xl">
-                        info@handybro.se
+                        handybrosverige@gmail.com
                       </div>
                     </div>
 
@@ -533,9 +533,9 @@ export default function App() {
             },
             {
               label: t.form.email,
-              value: "info@handybro.se",
+              value: "handybrosverige@gmail.com",
               icon: Mail,
-              href: "mailto:info@handybro.se",
+              href: "handybrosverige@gmail.com",
             },
             {
               label: t.website,
